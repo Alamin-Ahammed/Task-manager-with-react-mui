@@ -65,6 +65,7 @@ export default function ListItemCustom({
               value={inputValueOfEdit}
               onChange={handleEditInputValue}
               onKeyDown={(e)=> e.key === 'Enter' && handleSubmitionOfEdit()}
+              autoFocus
               required
             />
           ) : (
