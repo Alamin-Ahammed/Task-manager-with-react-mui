@@ -30,7 +30,9 @@ export default function ListItemCustom({
     e.preventDefault();
     e.stopPropagation();
     setInputValueOfEdit(list.task)
-    setIsEdited(true);
+    if (!list.compeleted) {
+      setIsEdited(true);
+    }
   };
 
   function handleEditInputValue(e) {
