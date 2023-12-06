@@ -36,6 +36,10 @@ function handleState(state, action) {
     const filteredData = state.filter(element => element.id !== action.id)
       return filteredData;
     }
+    case 'edit': {
+      const editedData = state.map(element => element.id === action.id ? {...element,task: action.data}: element);
+      return editedData;
+    }
     default: {
       return state
     }
@@ -70,6 +74,15 @@ function App() {
     })
   }
 
+  function handleEdit(updatedValue) {
+    const {id,data} = updatedValue;
+    dispatch({
+      type: 'edit',
+      data: data,
+      id
+    })
+  }
+
   function handleCompelete(id) {
     dispatch({
       type: 'compeletedTask',
@@ -97,7 +110,7 @@ function App() {
           </Button>
         </div>
       </form>
-      <InteractiveList lists={lists} handleDelete={handleDelete} handleCompelete={handleCompelete} />
+      <InteractiveList lists={lists} handleDelete={handleDelete} handleCompelete={handleCompelete} handleEdit={handleEdit} />
     </>
   );
 }

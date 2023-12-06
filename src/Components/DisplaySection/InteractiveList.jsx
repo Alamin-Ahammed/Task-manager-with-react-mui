@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 import ListItemCustom from "./ListItemCustom";
 
-export default function InteractiveList({lists,handleDelete,handleCompelete}) {
+export default function InteractiveList({lists,handleDelete,handleCompelete,handleEdit}) {
   return (
     <Box sx={{ flexGrow: 1, maxWidth: 752, marginInline: "auto", mt: "2rem" }}>
       <nav aria-label="main mailbox folders">
@@ -16,7 +16,7 @@ export default function InteractiveList({lists,handleDelete,handleCompelete}) {
         <Divider />
         <List key={Date.now()}>
           {
-            lists.map(list => <ListItemCustom key={list.id} list={list} handleDelete={handleDelete} handleCompelete={handleCompelete} />)
+            lists.map(list => <ListItemCustom key={list.id} list={list} handleDelete={handleDelete} handleCompelete={handleCompelete} handleEdit={handleEdit} />)
           }
         </List>
       </nav>
