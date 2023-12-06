@@ -6,19 +6,6 @@ import Typography from "@mui/material/Typography";
 import { Divider } from "@mui/material";
 import ListItemCustom from "./ListItemCustom";
 
-function generate(element) {
-  return [0, 1, 2].map((value) =>
-    React.cloneElement(element, {
-      key: value,
-    })
-  );
-}
-
-const Demo = styled("div")(({ theme }) => ({
-  backgroundColor: theme.palette.background.paper,
-}));
-
-
 export default function InteractiveList({lists,handleDelete,handleCompelete}) {
   return (
     <Box sx={{ flexGrow: 1, maxWidth: 752, marginInline: "auto", mt: "2rem" }}>

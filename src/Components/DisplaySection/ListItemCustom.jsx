@@ -8,13 +8,6 @@ import IconButton from "@mui/material/IconButton";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import DeleteIcon from "@mui/icons-material/Delete";
 
-// Define styles using styled
-const HoverableButton = styled(Button)(({ theme }) => ({
-  "&:hover": {
-    backgroundColor: theme.palette.action.hover,
-  },
-}));
-
 const HoverableIconButton = styled(IconButton)(({ theme }) => ({
   "&:hover": {
     backgroundColor: theme.palette.error.main,

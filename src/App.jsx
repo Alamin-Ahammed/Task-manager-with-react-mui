@@ -92,7 +92,7 @@ function App() {
             onChange={handleInput}
             required
           />
-          <Button type="submit" variant="contained" sx={{ mt: 4, padding: 2 }}>
+          <Button disabled={currentInput.trim() === '' ? true : false} type="submit" variant="contained" sx={{ mt: 4, padding: 2 }}>
             Add Task
           </Button>
         </div>
