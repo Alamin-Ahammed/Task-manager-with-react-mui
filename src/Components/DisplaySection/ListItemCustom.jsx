@@ -32,6 +32,8 @@ export default function ListItemCustom({
     setInputValueOfEdit(list.task);
     if (!list.compeleted) {
       setIsEdited(true);
+    }else {
+      alert('You have already compeleted this task.')
     }
   };
 
