@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import { Button, ListItemButton, TextField, createTheme } from "@mui/material";
+import { ListItemButton, TextField } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import AddTaskIcon from "@mui/icons-material/AddTask";
 import DeleteIcon from "@mui/icons-material/Delete";
@@ -29,7 +29,7 @@ export default function ListItemCustom({
   const handleEdit_input_value = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setInputValueOfEdit(list.task)
+    setInputValueOfEdit(list.task);
     if (!list.compeleted) {
       setIsEdited(true);
     }
@@ -45,7 +45,13 @@ export default function ListItemCustom({
 
   function handleSubmitionOfEdit() {
     const id = list.id;
-    handleEdit({id,data: inputValueOfEdit})
+    if (inputValueOfEdit.trim() !== "") {
+      handleEdit({ id, data: inputValueOfEdit });
+    } else {
+      if (confirm("Do you really wanna Delete the task?")) {
+        handleDelete(id);
+      }
+    }
   }
 
   return (
@@ -66,7 +72,7 @@ export default function ListItemCustom({
               sx={{ width: "400px" }}
               value={inputValueOfEdit}
               onChange={handleEditInputValue}
-              onKeyDown={(e)=> e.key === 'Enter' && handleSubmitionOfEdit()}
+              onKeyDown={(e) => e.key === "Enter" && handleSubmitionOfEdit()}
               autoFocus
               required
             />
